@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DanDan</title>
+</head>
+<body>
+    <main class="container">
+        <h1 class="htime">Estamos juntos há</h1>
+        <p class="ptime" id="time-together"></p>
+        <a class="linkvideo" href="./video1ano.html">366 Dias Juntos!</a>
+        <h1 class="h1music">Nossas Recordações</h1>
+        <h2 class="h1dani">Eu te amo minha Dani</h2>
+     <div class="div1">
+        <p class="legenda2">3 Meses</p>
+        <img class="img2" src="./arq/3meses.png" alt="">
+        <p class="legenda3">Formatura</p>
+        <img class="img3" src="./arq/formatura.png" alt="">
+        <p class="legendaalianca">4 Meses💍</p>
+        <img class="img2" src="./arq/4meses.png" alt="">
+        <p class="legenda1">5 Meses</p>
+        <img class="img1" src="./arq/5meses.png" alt="">
+        <p class="legenda2">12/06</p>
+        <img class="img2" src="./arq/diadosnamorados.png" alt="">
+        <p class="legenda3">6 Meses</p>
+        <img class="img3" src="./arq/6meses.png" alt="">
+        <p class="legenda2">7 Meses</p>
+        <img class="img2" src="./arq/7meses.png" alt="">
+        <p class="legenda1">8 Meses</p>
+        <img class="img1" src="./arq/8meses.png" alt="">
+        <a class="linkvideo_8meses" href="./video.html">8 meses juntos</a>
+        <p class="legenda2">9 Meses</p>
+        <img class="img2" src="./arq/9meses.png" alt="">
+        <p class="legenda3">10 Meses</p>
+        <img class="img3" src="./arq/10meses.png" alt="">
+        <p class="legenda2">11 Meses</p>
+        <img class="img2" src="./arq/11meses.png" alt="">
+        <p class="legenda1">12 Meses</p>
+        <img class="img1" src="./arq/1ano.png" alt="">
+    </div>
+    <h1 class="h1music">Nossas Músicas</h1>
+    <p class="p1">Som preferido de Markus</p>
+    <audio controls class="audio" src="./arq/risadalinda.mp3"></audio>
+    <p class="p1">Amor dos deuses</p>
+    <audio controls class="audio" src="./arq/Amor Dos Deuses (64).mp3"></audio>
+    <p class="p1">Gamei</p>
+    <audio controls class="audio" src="./arq/Exaltasamba - Gamei.mp3"></audio>
+    <p class="p1">Último romance</p>
+    <audio controls class="audio" src="./arq/Los Hermanos - Último Romance.mp3"></audio>
+    </main>
+    <script>
+        function calculateTimeTogether(startDate) {
+            const now = new Date();
+            const start = new Date(startDate);
+            const diff = now - start;
+
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+            const days = Math.floor(hours / 24);
+            const months = Math.floor(days / 30.436875); // Média de dias em um mês
+            const years = Math.floor(months / 12);
+
+            const remainingMonths = months % 12;
+            const remainingDays = days % 30.436875;
+            const remainingHours = hours % 21;
+            const remainingMinutes = minutes % 60;
+            const remainingSeconds = seconds % 60;
+
+            return `${years} ano, ${remainingMonths} meses, ${Math.floor(remainingDays)} dias, ${remainingHours} horas, ${remainingMinutes} minutos, ${remainingSeconds} segundos`;
+        }
+
+        const startDate = '2023-12-30'; // Data do início do nosso relacionamento
+        const timeTogether = calculateTimeTogether(startDate);
+        
+        document.getElementById('time-together').innerText = timeTogether;
+
+        setInterval(() => {
+            const timeTogether = calculateTimeTogether(startDate);
+            document.getElementById('time-together').innerText = timeTogether;
+        }, 1000); // Atualiza a cada segundo
+    </script>
+</body>
+</html>
